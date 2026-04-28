@@ -17,7 +17,7 @@ const Footer = () => {
           <h4 className="font-bold mb-4 text-brand-yellow">Contato</h4>
           <ul className="space-y-3 text-muted-foreground">
             <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-brand-yellow" /> contato@adcompany.com.br</li>
-            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-yellow" /> (00) 00000-0000</li>
+            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-yellow" /> <a href="tel:+5548994952650" className="hover:text-brand-yellow transition-smooth">+55 48 9949-5265</a></li>
           </ul>
         </div>
 

@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Montserrat', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Roboto', 'sans-serif'],
+        sans: ['Roboto', 'system-ui', 'sans-serif'],
       },
       colors: {
         brand: {

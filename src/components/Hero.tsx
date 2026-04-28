@@ -1,0 +1,48 @@
+import { Button } from "@/components/ui/button";
+import { MessageCircle } from "lucide-react";
+import rocket from "@/assets/hero-rocket.jpg";
+import logo from "@/assets/ad-company-logo.png";
+
+const Hero = () => {
+  return (
+    <section className="relative overflow-hidden bg-hero pt-32 pb-20 md:pt-40 md:pb-32">
+      {/* Glow */}
+      <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-brand-yellow/20 blur-[120px] animate-glow" />
+      <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-brand-royal/40 blur-[120px]" />
+
+      <div className="container relative mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-8">
+          <img src={logo} alt="AD Company" className="h-20 w-20 rounded-xl shadow-yellow-soft" width={80} height={80} />
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05]">
+            Domine o <span className="text-gradient-yellow">Marketing Digital</span> e Conquiste Mais Clientes para o Seu Negócio!
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+            A <strong className="text-brand-yellow">AD Company</strong> é especialista em gerar leads qualificados através de Google Ads, Meta Ads e gestão estratégica de tráfego. Transformamos cliques em clientes reais para o seu negócio crescer de forma previsível.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Button asChild variant="hero" size="xl">
+              <a href="#contato"><MessageCircle className="mr-2 h-5 w-5" /> Solicite uma Consulta Gratuita</a>
+            </Button>
+          </div>
+          <div className="flex flex-wrap gap-6 pt-4 text-sm text-muted-foreground">
+            <div><span className="text-brand-yellow font-bold text-2xl font-display">+200</span><br />Clientes atendidos</div>
+            <div><span className="text-brand-yellow font-bold text-2xl font-display">5x</span><br />ROI médio</div>
+            <div><span className="text-brand-yellow font-bold text-2xl font-display">24/7</span><br />Suporte dedicado</div>
+          </div>
+        </div>
+
+        <div className="relative animate-float">
+          <div className="absolute inset-0 rounded-full bg-brand-yellow/30 blur-3xl" />
+          <img
+            src={rocket}
+            alt="Foguete dourado decolando — crescimento exponencial com AD Company"
+            className="relative w-full h-auto rounded-3xl shadow-glow"
+            width={1024}
+            height={1024}
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+export default Hero;

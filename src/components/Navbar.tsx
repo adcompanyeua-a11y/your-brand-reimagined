@@ -1,0 +1,25 @@
+import { Button } from "@/components/ui/button";
+import logo from "@/assets/ad-company-logo.png";
+
+const Navbar = () => {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-brand-navy/70 border-b border-brand-yellow/10">
+      <div className="container mx-auto flex items-center justify-between py-3">
+        <a href="#" className="flex items-center gap-3">
+          <img src={logo} alt="AD Company logo" className="h-12 w-12 rounded-md object-cover" width={48} height={48} />
+          <span className="font-display text-lg font-extrabold text-brand-yellow tracking-tight">AD COMPANY</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
+          <a href="#servicos" className="hover:text-brand-yellow transition-smooth">Serviços</a>
+          <a href="#processo" className="hover:text-brand-yellow transition-smooth">Processo</a>
+          <a href="#diferenciais" className="hover:text-brand-yellow transition-smooth">Diferenciais</a>
+          <a href="#contato" className="hover:text-brand-yellow transition-smooth">Contato</a>
+        </nav>
+        <Button asChild variant="hero" size="sm" className="hidden sm:inline-flex">
+          <a href="#contato">Consulta Gratuita</a>
+        </Button>
+      </div>
+    </header>
+  );
+};
+export default Navbar;

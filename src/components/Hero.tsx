@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 import rocket from "@/assets/hero-rocket.jpg";
-import logo from "@/assets/ad-company-logo.png";
+
 
 const Hero = () => {
   return (
@@ -12,7 +12,6 @@ const Hero = () => {
 
       <div className="container relative mx-auto grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
-          <img src={logo} alt="AD Company" className="h-20 w-20 rounded-xl shadow-yellow-soft" width={80} height={80} />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05]">
             Domine o <span className="text-gradient-yellow">Marketing Digital</span> e Conquiste Mais Clientes para o Seu Negócio!
           </h1>

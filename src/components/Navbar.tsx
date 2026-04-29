@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/ad-company-logo.png";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Navbar = () => {
+  const { t } = useLanguage();
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-brand-navy/70 border-b border-brand-yellow/10">
       <div className="container mx-auto flex items-center justify-between py-3">
@@ -10,14 +13,17 @@ const Navbar = () => {
           <span className="font-display text-lg font-extrabold text-brand-yellow tracking-tight">AD COMPANY</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
-          <a href="#servicos" className="hover:text-brand-yellow transition-smooth">Serviços</a>
-          <a href="#processo" className="hover:text-brand-yellow transition-smooth">Processo</a>
-          <a href="#diferenciais" className="hover:text-brand-yellow transition-smooth">Diferenciais</a>
-          <a href="#contato" className="hover:text-brand-yellow transition-smooth">Contato</a>
+          <a href="#servicos" className="hover:text-brand-yellow transition-smooth">{t.nav.services}</a>
+          <a href="#processo" className="hover:text-brand-yellow transition-smooth">{t.nav.process}</a>
+          <a href="#diferenciais" className="hover:text-brand-yellow transition-smooth">{t.nav.differentials}</a>
+          <a href="#contato" className="hover:text-brand-yellow transition-smooth">{t.nav.contact}</a>
         </nav>
-        <Button asChild variant="hero" size="sm" className="hidden sm:inline-flex">
-          <a href="#contato">Consulta Gratuita</a>
-        </Button>
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher />
+          <Button asChild variant="hero" size="sm" className="hidden sm:inline-flex">
+            <a href="#contato">{t.nav.cta}</a>
+          </Button>
+        </div>
       </div>
     </header>
   );

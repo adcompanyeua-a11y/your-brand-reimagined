@@ -7,15 +7,49 @@ import { useState } from "react";
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
+  const [segmento, setSegmento] = useState("");
+  const [funcionarios, setFuncionarios] = useState("");
+  const [faturamento, setFaturamento] = useState("");
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    const form = e.target as HTMLFormElement;
+
+    const payload = {
+      nome: (form.elements.namedItem("nome") as HTMLInputElement).value,
+      whatsapp: (form.elements.namedItem("whatsapp") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      empresa: (form.elements.namedItem("empresa") as HTMLInputElement).value,
+      segmento: segmento || "Não informado",
+      funcionarios: funcionarios || "Não informado",
+      faturamento: faturamento || "Não informado",
+    };
+
+    try {
+      const res = await fetch("https://agenciaadcompany.com.br/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.ok) {
+        toast.success("Recebemos sua solicitação! Entraremos em contato em breve.");
+        form.reset();
+        setSegmento("");
+        setFuncionarios("");
+        setFaturamento("");
+      } else {
+        toast.error("Erro ao enviar. Tente novamente em instantes.");
+      }
+    } catch {
+      toast.error("Erro de conexão. Verifique sua internet e tente novamente.");
+    } finally {
       setLoading(false);
-      toast.success("Recebemos sua solicitação! Entraremos em contato em breve.");
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+    }
   };
 
   return (
@@ -37,38 +71,78 @@ const ContactForm = () => {
               <li>✅ Resposta em até 24 horas úteis</li>
             </ul>
           </div>
-
           <form onSubmit={onSubmit} className="bg-card-grad p-8 rounded-2xl border border-brand-yellow/20 shadow-card-soft space-y-4">
             <div>
               <Label htmlFor="nome">Nome</Label>
-              <Input id="nome" required placeholder="Seu nome completo" />
+              <Input id="nome" name="nome" required placeholder="Seu nome completo" />
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <Label htmlFor="whatsapp">WhatsApp</Label>
-                <Input id="whatsapp" required placeholder="(00) 00000-0000" />
+                <Input id="whatsapp" name="whatsapp" required placeholder="(00) 00000-0000" />
               </div>
               <div>
                 <Label htmlFor="email">E-mail</Label>
-                <Input id="email" type="email" required placeholder="voce@email.com" />
+                <Input id="email" name="email" type="email" required placeholder="voce@email.com" />
               </div>
             </div>
             <div>
               <Label htmlFor="empresa">Nome da empresa</Label>
-              <Input id="empresa" placeholder="Sua empresa" />
+              <Input id="empresa" name="empresa" placeholder="Sua empresa" />
             </div>
+
+            {/* Qual o seu segmento? */}
             <div>
-              <Label>Qual seu principal interesse?</Label>
-              <Select>
-                <SelectTrigger><SelectValue placeholder="Selecione um serviço" /></SelectTrigger>
+              <Label>Qual o seu segmento?</Label>
+              <Select value={segmento} onValueChange={setSegmento}>
+                <SelectTrigger><SelectValue placeholder="Qual o seu segmento?" /></SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="trafego">Gestão de Tráfego (Google/Meta Ads)</SelectItem>
-                  <SelectItem value="social">Gestão de Mídias Sociais</SelectItem>
-                  <SelectItem value="site">Criação de Site / Landing Page</SelectItem>
-                  <SelectItem value="completo">Consultoria Completa</SelectItem>
+                  <SelectItem value="educacao">Educação</SelectItem>
+                  <SelectItem value="servico">Serviço</SelectItem>
+                  <SelectItem value="ecommerce">E-commerce</SelectItem>
+                  <SelectItem value="franquia">Franquia</SelectItem>
+                  <SelectItem value="saude">Saúde</SelectItem>
+                  <SelectItem value="beleza">Beleza e estética</SelectItem>
+                  <SelectItem value="construcao">Construção civil</SelectItem>
+                  <SelectItem value="financas">Finanças</SelectItem>
+                  <SelectItem value="varejo">Varejo</SelectItem>
+                  <SelectItem value="imobiliaria">Imobiliária</SelectItem>
+                  <SelectItem value="alimentacao">Alimentação</SelectItem>
+                  <SelectItem value="outros">Outros</SelectItem>
                 </SelectContent>
               </Select>
             </div>
+
+            {/* Quantos funcionários você tem? */}
+            <div>
+              <Label>Quantos funcionários você tem?</Label>
+              <Select value={funcionarios} onValueChange={setFuncionarios}>
+                <SelectTrigger><SelectValue placeholder="Quantos funcionários você tem?" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="00-01">00 - 01</SelectItem>
+                  <SelectItem value="02-10">02 - 10</SelectItem>
+                  <SelectItem value="11-20">11 - 20</SelectItem>
+                  <SelectItem value="21-50">21 - 50</SelectItem>
+                  <SelectItem value="51-100">51 - 100</SelectItem>
+                  <SelectItem value="+100">+100</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Faturamento médio mensal */}
+            <div>
+              <Label>Faturamento médio mensal</Label>
+              <Select value={faturamento} onValueChange={setFaturamento}>
+                <SelectTrigger><SelectValue placeholder="Faturamento médio mensal" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="abaixo-70k">Abaixo de R$ 70 mil</SelectItem>
+                  <SelectItem value="70k-150k">Entre R$ 70 e 150 mil</SelectItem>
+                  <SelectItem value="150k-500k">Entre R$ 150 e 500 mil</SelectItem>
+                  <SelectItem value="acima-500k">Acima de R$ 500 mil</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
             <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
               {loading ? "Enviando..." : "Enviar Solicitação"}
             </Button>
@@ -81,4 +155,5 @@ const ContactForm = () => {
     </section>
   );
 };
+
 export default ContactForm;

@@ -179,6 +179,6 @@ export const translations = {
       rights: "Todos los derechos reservados.",
     },
   },
-} as const;
+};
 
-export type Translation = typeof translations.pt;
+export type Translation = (typeof translations)["pt"];

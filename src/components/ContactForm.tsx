@@ -28,7 +28,7 @@ const ContactForm = () => {
     };
 
     try {
-      const res = await fetch("https://agenciaadcompany.com.br/contato", {
+      const res = await fetch("https://api.agenciaadcompany.com.br/contato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

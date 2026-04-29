@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto grid md:grid-cols-3 gap-10 mb-10">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <img src={logo} alt="AD Company logo" className="h-14 w-14 rounded-md" width={56} height={56} />
+            <img src={logo} alt="AD Company logo" className="h-14 w-14 object-contain" />
             <span className="font-display text-xl font-black text-brand-yellow">AD COMPANY</span>
           </div>
           <p className="text-muted-foreground">Marketing digital estratégico para negócios que querem crescer com previsibilidade.</p>

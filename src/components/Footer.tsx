@@ -1,4 +1,4 @@
-import { Mail, Phone, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone, Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/ad-company-logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -26,8 +26,11 @@ const Footer = () => {
         <div>
           <h4 className="font-bold mb-4 text-brand-yellow">{t.footer.social}</h4>
           <div className="flex gap-3">
-            {[Instagram, Facebook, Linkedin].map((Icon, i) => (
-              <a key={i} href="#" className="h-10 w-10 rounded-lg bg-brand-yellow/10 hover:bg-brand-yellow hover:text-brand-navy text-brand-yellow flex items-center justify-center transition-smooth" aria-label="Rede social">
+            {[
+              { Icon: Instagram, href: "https://www.instagram.com/adcompany.ads/", label: "Instagram" },
+              { Icon: Facebook, href: "https://www.facebook.com/adcompany.assessoria", label: "Facebook" },
+            ].map(({ Icon, href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-lg bg-brand-yellow/10 hover:bg-brand-yellow hover:text-brand-navy text-brand-yellow flex items-center justify-center transition-smooth" aria-label={label}>
                 <Icon className="h-5 w-5" />
               </a>
             ))}

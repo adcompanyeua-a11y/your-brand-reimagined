@@ -35,13 +35,13 @@ const VideoReviews = () => {
           <p className="text-muted-foreground text-lg">{subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-8">
           {videos.map((v) => (
             <div
               key={v.name}
-              className="relative rounded-2xl overflow-hidden border border-brand-yellow/20 bg-brand-navy/60 backdrop-blur hover:border-brand-yellow transition-smooth group"
+              className="relative rounded-2xl overflow-hidden border border-brand-yellow/20 bg-brand-navy/60 backdrop-blur hover:border-brand-yellow transition-smooth group w-full max-w-[500px]"
             >
-              <div className="aspect-[9/16] w-full bg-black">
+              <div className="w-full aspect-square bg-black">
                 <iframe
                   src={`https://www.youtube.com/embed/${v.id}?rel=0&modestbranding=1`}
                   title={`Depoimento ${v.name}`}

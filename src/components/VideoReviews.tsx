@@ -3,11 +3,11 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const videos = [
   {
     name: "Juliana",
-    src: "https://console-nextplay-minio.8qr4sb.easypanel.host/api/v1/buckets/typebot/objects/download?preview=true&prefix=videos%2FJuliana.mp4&version_id=null",
+    id: "Fjujm8dqZlM",
   },
   {
     name: "Gabriela",
-    src: "https://console-nextplay-minio.8qr4sb.easypanel.host/api/v1/buckets/typebot/objects/download?preview=true&prefix=videos%2FGabriela.mp4&version_id=null",
+    id: "bSgF-_oNpEA",
   },
 ];
 
@@ -42,15 +42,14 @@ const VideoReviews = () => {
               className="relative rounded-2xl overflow-hidden border border-brand-yellow/20 bg-brand-navy/60 backdrop-blur hover:border-brand-yellow transition-smooth group"
             >
               <div className="aspect-[9/16] w-full bg-black">
-                <video
-                  src={v.src}
-                  controls
-                  preload="metadata"
-                  playsInline
-                  className="h-full w-full object-contain"
-                >
-                  <track kind="captions" />
-                </video>
+                <iframe
+                  src={`https://www.youtube.com/embed/${v.id}?rel=0&modestbranding=1`}
+                  title={`Depoimento ${v.name}`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="h-full w-full"
+                />
               </div>
               <div className="p-4 text-center">
                 <p className="font-bold text-lg">{v.name}</p>

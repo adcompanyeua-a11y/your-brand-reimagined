@@ -38,6 +38,9 @@ const Hero = () => {
             className="relative w-full h-auto rounded-3xl shadow-glow"
             width={1024}
             height={1024}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
       </div>

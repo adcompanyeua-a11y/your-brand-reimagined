@@ -19,7 +19,7 @@ const Footer = () => {
           <h4 className="font-bold mb-4 text-brand-yellow">{t.footer.contact}</h4>
           <ul className="space-y-3 text-muted-foreground">
             <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-brand-yellow" /> <a href="mailto:adcompany.eua@gmail.com" className="hover:text-brand-yellow transition-smooth">adcompany.eua@gmail.com</a></li>
-            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-yellow" /> <a href="tel:+5548994952650" className="hover:text-brand-yellow transition-smooth">+55 48 9949-5265</a></li>
+            <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-brand-yellow" /> <a href="https://wa.me/5548994952650?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20saber%20mais%20da%20AD%20Company." target="_blank" rel="noopener noreferrer" className="hover:text-brand-yellow transition-smooth">+55 48 9949-5265</a></li>
           </ul>
         </div>
 

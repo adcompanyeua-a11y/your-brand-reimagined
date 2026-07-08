@@ -13,7 +13,7 @@ const FloatingWhatsApp = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={lang === "pt" ? "Fale conosco pelo WhatsApp" : "Habla con nosotros por WhatsApp"}
-      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-brand-yellow text-brand-navy shadow-yellow-soft transition-smooth hover:scale-110 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-background"
+      className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-smooth hover:scale-110 hover:bg-[#128C7E] focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 focus:ring-offset-background"
     >
       <svg
         className="h-7 w-7 shrink-0"

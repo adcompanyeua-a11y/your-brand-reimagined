@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "lucide-react";
-import rocket from "@/assets/hero-rocket.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 declare global {
@@ -83,14 +82,14 @@ const Hero = () => {
             <div><span className="text-brand-yellow font-bold text-lg sm:text-2xl font-display block">{t.hero.statNum3}</span>{t.hero.stat3}</div>
           </div>
         </div>
-        <div className="relative animate-float max-w-sm sm:max-w-md lg:max-w-none mx-auto w-full">
+        <div className="relative animate-float w-full max-w-[95%] sm:max-w-[420px] md:max-w-[520px] lg:max-w-none mx-auto px-2 sm:px-0">
           <div className="absolute inset-0 rounded-full bg-brand-yellow/30 blur-3xl" />
           <img
-            src={rocket}
-            alt="AD Company"
-            className="relative w-full h-auto rounded-3xl shadow-glow"
-            width={1024}
-            height={1024}
+            src="/hero-mockup.webp"
+            alt="Resultados AD Company no Google e WhatsApp"
+            className="relative w-full h-auto rounded-2xl md:rounded-3xl shadow-glow"
+            width={1448}
+            height={1086}
             loading="eager"
             fetchPriority="high"
             decoding="async"

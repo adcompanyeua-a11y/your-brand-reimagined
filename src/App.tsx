@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import Obrigado from "./pages/Obrigado.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { LanguageProvider } from "./i18n/LanguageContext.tsx";
+import FloatingWhatsApp from "./components/FloatingWhatsApp.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+        <FloatingWhatsApp />
       </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>

@@ -82,7 +82,7 @@ const Hero = () => {
             <div><span className="text-brand-yellow font-bold text-lg sm:text-2xl font-display block">{t.hero.statNum3}</span>{t.hero.stat3}</div>
           </div>
         </div>
-        <div className="relative animate-float w-full max-w-[280px] sm:max-w-[380px] md:max-w-[480px] lg:max-w-none mx-auto">
+        <div className="relative animate-float w-full max-w-[95%] sm:max-w-[420px] md:max-w-[520px] lg:max-w-none mx-auto px-2 sm:px-0">
           <div className="absolute inset-0 rounded-full bg-brand-yellow/30 blur-3xl" />
           <img
             src="/hero-mockup.webp"

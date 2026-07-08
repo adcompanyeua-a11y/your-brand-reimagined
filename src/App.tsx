@@ -25,6 +25,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+        <FloatingWhatsApp />
       </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
